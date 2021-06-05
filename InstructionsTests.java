@@ -191,4 +191,23 @@ public class InstructionsTests {
         }
         Assert.assertEquals("Define doesn't work correctly", ctx.getMap().get("a"), normal_ctx.getMap().get("a"), 0.00001);
     }
+    
+    @Test
+    public void testEXP() throws NamingException {
+        CalculatorContext ctx = new CalculatorContext();
+        ctx.getStack().addFirst(2.0);
+        ctx.getStack().addFirst(4.0);
+        CalculatorContext normal_ctx = new CalculatorContext();
+        normal_ctx.getStack().addFirst(16.0);
+
+        EXP forTest = new EXP();
+        try {
+            forTest.Execute(null, ctx);
+        }
+        catch (Exception ex) {
+            Assert.assertEquals("Exception!", ctx.getStack().pop(), normal_ctx.getStack().pop(), 0.00001);
+
+        }
+        Assert.assertEquals("EXP doesn't work correctly", ctx.getStack().pop(), normal_ctx.getStack().pop(), 0.00001);
+    }
 }
