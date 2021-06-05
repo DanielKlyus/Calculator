@@ -7,3 +7,4 @@ PLUS Plus
 * Multiple
 / Division
 SQRT SQRT
+EXP EXP
