@@ -210,4 +210,17 @@ public class InstructionsTests {
         }
         Assert.assertEquals("EXP doesn't work correctly", ctx.getStack().pop(), normal_ctx.getStack().pop(), 0.00001);
     }
+    
+   @Test
+    void testDivisionByZero() {
+        CalculatorContext ctx = new CalculatorContext();
+        ctx.getStack().addFirst(5.0);
+        Double first = ctx.getStack().pop();
+        ctx.getStack().addFirst(0.0);
+        Double second = ctx.getStack().pop();
+
+        Assert.assertThrows(ZeroDivisionException.class, () -> {
+            ctx.getStack().addFirst(first/second);
+        });
+    } 
 }
