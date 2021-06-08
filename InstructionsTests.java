@@ -212,7 +212,7 @@ public class InstructionsTests {
     }
     
    @Test
-    void testDivisionByZero() {
+    public void testDivisionByZero() throws NamingException{
         CalculatorContext ctx = new CalculatorContext();
         ctx.getStack().addFirst(5.0);
         Double first = ctx.getStack().pop();
