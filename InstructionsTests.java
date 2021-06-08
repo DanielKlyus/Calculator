@@ -220,7 +220,7 @@ public class InstructionsTests {
         Double second = ctx.getStack().pop();
 
         Assert.assertThrows(ZeroDivisionException.class, () -> {
-            ctx.getStack().addFirst(first/second);
+            ctx.getStack().addFirst(second/first);
         });
     } 
 }
